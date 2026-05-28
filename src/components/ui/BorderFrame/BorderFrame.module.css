@@ -1,0 +1,31 @@
+.frame {
+  position: fixed;
+  inset: 1rem;
+  z-index: 50;
+  pointer-events: none;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
+  overflow: visible;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1rem #09090b;
+}
+
+.rect {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.463);
+  stroke-width: 2;
+  stroke-dasharray: 11000;
+  stroke-dashoffset: 11000;
+  animation: drawBorder 5s ease forwards;
+}
+
+@keyframes drawBorder {
+  to { stroke-dashoffset: 0; }
+}
+

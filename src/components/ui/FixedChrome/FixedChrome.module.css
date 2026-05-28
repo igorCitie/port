@@ -1,0 +1,18 @@
+/* ── Background ─────────────────────────────────────── */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: #09090b;
+  pointer-events: none;
+}
+
+.plasmaWrapper {
+  position: absolute;
+  inset: 0;
+  left: 40%;
+  mask-image: linear-gradient(to right, transparent 0%, black 25%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%);
+}
+
+
