@@ -6,15 +6,25 @@ import {
   SiTailwindcss,
   SiPostgresql,
   SiDocker,
+  SiAngular,
+  SiSpring,
+  SiNodedotjs,
+  SiSass,
+  SiNginx,
 } from 'react-icons/si'
 
 const techs = [
   { icon: SiTypescript, label: 'TypeScript' },
   { icon: SiReact,      label: 'React'      },
+  { icon: SiAngular,    label: 'Angular'    },
   { icon: SiNextdotjs,  label: 'Next.js'    },
-  { icon: SiTailwindcss,label: 'Tailwind'   },
+  { icon: SiNodedotjs,  label: 'Node.js'    },
+  { icon: SiSpring,     label: 'Spring Boot'},
   { icon: SiPostgresql, label: 'PostgreSQL' },
+  { icon: SiSass,       label: 'SCSS'       },
+  { icon: SiTailwindcss,label: 'Tailwind'   },
   { icon: SiDocker,     label: 'Docker'     },
+  { icon: SiNginx,      label: 'Nginx'      },
 ]
 
 export default function Technologies() {
