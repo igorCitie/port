@@ -6,7 +6,7 @@ export default function Hero() {
     <section className={styles.hero}>
       {/* Content starts near the bottom of the first viewport */}
       <div className={styles.content}>
-        <h1 className={styles.heading}>E aí, sou o Igor!</h1>
+        <h1 className={styles.heading}>E aí, sou Igor!</h1>
         <p className={styles.subheading}>
           <FaLocationPin style={{ marginRight: '0.7ch', width: '0.7em', height: '0.7em' }} />
           São Luís
