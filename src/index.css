@@ -7,6 +7,14 @@
 :root {
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
+  /* Color channels: use as rgb(var(--fg) / alpha) and rgb(var(--bg)) */
+  --fg: 255 255 255;
+  --bg: 9 9 11;
+}
+
+[data-theme="light"] {
+  --fg: 9 9 11;
+  --bg: 245 245 247;
 }
 
 html,
@@ -16,11 +24,32 @@ body,
   overflow: hidden;
 }
 
+html {
+  background-color: rgb(var(--bg));
+}
+
 body {
   overflow: hidden;
   background-color: transparent;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+}
+
+/* ── View Transition: theme cross-fade ─────────────── */
+@keyframes theme-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes theme-fade-in {
+  from { opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: 0.3s ease-out both theme-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.3s ease-in both theme-fade-in;
 }
 
 .scroll-root {

@@ -18,7 +18,7 @@
   inset: 0;
   z-index: 49;
   pointer-events: none;
-  border: 1rem solid #09090b;
+  border: 1rem solid rgb(var(--bg));
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -28,7 +28,7 @@
 
 .rect {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.463);
+  stroke: rgb(var(--fg) / 0.463);
   stroke-width: 2;
   stroke-dasharray: 11000;
   stroke-dashoffset: 11000;

@@ -9,7 +9,7 @@
 }
 
 .heading {
-  color: #fff;
+  color: rgb(var(--fg));
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
@@ -31,7 +31,7 @@
 }
 
 .label {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgb(var(--fg) / 0.85);
   font-size: 0.875rem;
   font-weight: 400;
 }
@@ -39,9 +39,9 @@
 .input,
 .textarea {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgb(var(--fg) / 0.25);
   border-radius: 4px;
-  color: #fff;
+  color: rgb(var(--fg));
   font-family: var(--font-body, inherit);
   font-size: 0.95rem;
   padding: 0.65rem 0.85rem;
@@ -53,12 +53,12 @@
 
 .input::placeholder,
 .textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgb(var(--fg) / 0.3);
 }
 
 .input:focus,
 .textarea:focus {
-  border-color: rgba(255, 255, 255, 0.55);
+  border-color: rgb(var(--fg) / 0.55);
 }
 
 .textarea {
@@ -68,9 +68,9 @@
 
 .button {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgb(var(--fg) / 0.25);
   border-radius: 4px;
-  color: #fff;
+  color: rgb(var(--fg));
   cursor: pointer;
   font-family: var(--font-body, inherit);
   font-size: 0.95rem;
@@ -81,12 +81,12 @@
 }
 
 .button:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.45);
+  background: rgb(var(--fg) / 0.06);
+  border-color: rgb(var(--fg) / 0.45);
 }
 
 .button:active {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(var(--fg) / 0.1);
 }
 
 .button:disabled {

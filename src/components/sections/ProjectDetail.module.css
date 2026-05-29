@@ -64,7 +64,7 @@
 }
 
 .title {
-  color: #fff;
+  color: rgb(var(--fg));
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
@@ -85,7 +85,7 @@
 .closeBtn {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(var(--fg) / 0.5);
   font-size: 1.25rem;
   cursor: pointer;
   display: flex;
@@ -96,7 +96,7 @@
 }
 
 .closeBtn:hover {
-  color: #fff;
+  color: rgb(var(--fg));
 }
 
 /* ── Navigation ── */
@@ -109,7 +109,7 @@
 .navItem {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgb(var(--fg) / 0.45);
   cursor: pointer;
   padding: 0.2rem 0.3rem;
   display: flex;
@@ -122,7 +122,7 @@
 }
 
 .navItem:hover:not(:disabled) {
-  color: #fff;
+  color: rgb(var(--fg));
 }
 
 .navItem:disabled {
@@ -131,7 +131,7 @@
 }
 
 .navSep {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgb(var(--fg) / 0.25);
   font-size: 0.85rem;
   padding: 0 0.1rem;
   user-select: none;
@@ -153,7 +153,7 @@
 }
 
 .label {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(var(--fg) / 0.9);
   font-size: 0.85rem;
   padding-top: 0.4rem;
   white-space: nowrap;
@@ -171,11 +171,11 @@
   align-items: center;
   gap: 0.4rem;
   background: rgba(139, 112, 131, 0.402);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgb(var(--fg) / 0.12);
   border-radius: 6px;
   padding: 0.75rem 0.9rem;
   font-size: 0.95rem;
-  color: rgb(255, 255, 255);
+  color: rgb(var(--fg));
 }
 
 .tagIcon {
@@ -190,13 +190,13 @@
 }
 
 .tagLink:hover {
-  color: #fff;
+  color: rgb(var(--fg));
 }
 
 /* ── Divider ── */
 .divider {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.445);
+  border-top: 1px solid rgb(var(--fg) / 0.445);
   margin: 0;
   opacity: 0;
   margin: 1.25rem 0;
@@ -214,14 +214,14 @@
 }
 
 .intro {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(var(--fg) / 0.75);
   font-size: 0.95rem;
   line-height: 1.75;
   margin: 0;
 }
 
 .highlightsHeading {
-  color: #fff;
+  color: rgb(var(--fg));
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
@@ -244,8 +244,8 @@
   margin-bottom: 0.75rem;
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgb(var(--fg) / 0.04);
+  border: 1px solid rgb(var(--fg) / 0.9);
   cursor: zoom-in;
   height: auto;
 }
@@ -277,7 +277,7 @@
 }
 
 .highlights li {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgb(var(--fg) / 0.65);
   font-size: 0.95rem;
   line-height: 1.7;
 }

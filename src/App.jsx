@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
 import FixedChrome from './components/ui/FixedChrome/FixedChrome'
 import Hero from './components/sections/Hero'
 import PlaceholderSection from './components/sections/PlaceholderSection'
@@ -26,12 +27,14 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects/:slug" element={<ProjectDetail />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
