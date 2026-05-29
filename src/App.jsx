@@ -11,13 +11,15 @@ function Home() {
   return (
     <>
       <FixedChrome />
-      <main>
-        <Hero />
-        <Technologies />
-        <PlaceholderSection />
-        <Contact />
-      </main>
-      <Footer />
+      <div className="scroll-root">
+        <main>
+          <Hero />
+          <Technologies />
+          <PlaceholderSection />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }
