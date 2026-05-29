@@ -23,10 +23,10 @@ export default function Hero() {
           Dê uma olhada nos meus projetos abaixo e vamos conversar!
         </p>
         <div className={styles.socials}>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
+          <a href="https://github.com/igorCitie" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/igor-lima-pereira-577872186/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
             <FaLinkedin />
           </a>
         </div>

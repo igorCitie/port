@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import projects from '../../data/projects'
-import BorderFrame from '../ui/BorderFrame/BorderFrame'
+import FixedChrome from '../ui/FixedChrome/FixedChrome'
 import Lightbox from '../ui/Lightbox/Lightbox'
 import Footer from '../ui/Footer/Footer'
 import styles from './ProjectDetail.module.css'
@@ -15,10 +15,13 @@ export default function ProjectDetail() {
   const prev = projects[index - 1]
   const next = projects[index + 1]
 
+  const scrollRef = useRef(null)
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ top: 0, behavior: 'instant' })
+    }
   }, [slug])
 
   if (!project) {
@@ -30,8 +33,10 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className={styles.page}>
-      <BorderFrame />
+    <>
+      <FixedChrome />
+      <div ref={scrollRef} className="scroll-root">
+      <div className={styles.page}>
       <div key={slug} className={styles.panel}>
 
         {/* ── Header ── */}
@@ -142,8 +147,8 @@ export default function ProjectDetail() {
       )}
 
       <Footer />
-    </div>
-    
+      </div>
+      </div>
+    </>
   )
 }
-

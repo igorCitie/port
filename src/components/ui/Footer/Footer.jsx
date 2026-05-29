@@ -1,12 +1,11 @@
-import { FaLinkedin, FaGithub } from 'react-icons/fa6'
-import { SiBluesky } from 'react-icons/si'
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 
 const socialLinks = [
-  { icon: FaLinkedin, label: 'LinkedIn',  href: '#' },
-  { icon: FaGithub,   label: 'GitHub',    href: '#' },
-  { icon: SiBluesky,  label: 'Bluesky',   href: '#' },
+  { icon: FaLinkedin, label: 'LinkedIn',  href: 'https://www.linkedin.com/in/igor-lima-pereira-577872186/' },
+  { icon: FaGithub,   label: 'GitHub',    href: 'https://github.com/igorCitie' },
+  { icon: FaInstagram,  label: 'Instagram',   href: 'https://www.instagram.com/igorl.pereira/' },
 ]
 
 const navLinks = [
