@@ -34,15 +34,7 @@ export default function FixedChrome() {
         </div>
       </div>
 
-      <button
-        className={styles.themeToggle}
-        onClick={handleToggle}
-        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-      >
-        <span className={isAnimating ? styles.iconSpin : styles.icon}>
-          {theme === 'dark' ? <FaSun /> : <FaMoon />}
-        </span>
-      </button>
+
 
       <BorderFrame />
     </>
