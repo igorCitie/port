@@ -76,15 +76,24 @@
   }
 
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .card {
     height: 110px;
     padding: 0.75rem;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .icon {
     font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .label {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.75rem;
   }
 }
