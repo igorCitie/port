@@ -5,6 +5,10 @@
   z-index: 0;
   background-color: #09090b;
   pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .plasmaWrapper {
