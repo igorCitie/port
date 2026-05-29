@@ -9,13 +9,14 @@
   --font-body: 'Inter', system-ui, sans-serif;
 }
 
-html {
+html,
+body,
+#root {
   height: 100%;
   overflow: hidden;
 }
 
 body {
-  height: 100%;
   overflow: hidden;
   background-color: transparent;
   font-family: var(--font-body);
