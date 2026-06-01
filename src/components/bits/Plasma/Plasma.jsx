@@ -86,10 +86,17 @@ export const Plasma = ({
   direction = 'forward',
   scale = 1,
   opacity = 1,
-  mouseInteractive = true
+  mouseInteractive = true,
+  paused = false
 }) => {
   const containerRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
+  const pausedRef = useRef(paused);
+
+  // Keep pausedRef in sync without restarting the effect
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -180,7 +187,10 @@ export const Plasma = ({
     const t0 = performance.now();
 
     const loop = t => {
-      if (contextLost || !isVisible) return;
+      if (contextLost || !isVisible || pausedRef.current) {
+        raf = requestAnimationFrame(loop);
+        return;
+      }
       let timeValue = (t - t0) * 0.001;
       if (direction === 'pingpong') {
         const pingpongDuration = 10;
