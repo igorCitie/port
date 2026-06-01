@@ -2,6 +2,11 @@ import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import './Plasma.scss';
 
+const isIOS =
+  typeof navigator !== 'undefined' &&
+  (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return [1, 0.5, 0.2];
@@ -20,7 +25,7 @@ void main() {
 `;
 
 const fragment = `#version 300 es
-precision highp float;
+precision ${isIOS ? 'mediump' : 'highp'} float;
 uniform vec2 iResolution;
 uniform float iTime;
 uniform vec3 uCustomColor;
@@ -113,7 +118,7 @@ export const Plasma = ({
         webgl: 2,
         alpha: true,
         antialias: false,
-        dpr: Math.min(window.devicePixelRatio || 1, 2)
+        dpr: Math.min(window.devicePixelRatio || 1, isIOS ? 1 : 2)
       });
     } catch {
       return;
@@ -185,12 +190,19 @@ export const Plasma = ({
     let contextLost = false;
     let isVisible = true;
     const t0 = performance.now();
+    const frameDuration = isIOS ? 1000 / 30 : 0;
+    let lastFrameTime = -Infinity;
 
     const loop = t => {
       if (contextLost || !isVisible || pausedRef.current) {
         raf = requestAnimationFrame(loop);
         return;
       }
+      if (frameDuration > 0 && t - lastFrameTime < frameDuration) {
+        raf = requestAnimationFrame(loop);
+        return;
+      }
+      lastFrameTime = t;
       let timeValue = (t - t0) * 0.001;
       if (direction === 'pingpong') {
         const pingpongDuration = 10;

@@ -4,6 +4,11 @@ import Plasma from '../../bits/Plasma/Plasma'
 import BorderFrame from '../BorderFrame/BorderFrame'
 import { useTheme } from '../../../context/ThemeContext'
 
+const isIOS =
+  typeof navigator !== 'undefined' &&
+  (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+
 export default function FixedChrome() {
   const { theme } = useTheme()
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 768px)').matches)
@@ -25,7 +30,7 @@ export default function FixedChrome() {
     const onVVResize = () => {
       setPlasmaPaused(true)
       clearTimeout(resumeTimer.current)
-      resumeTimer.current = setTimeout(() => setPlasmaPaused(false), 300)
+      resumeTimer.current = setTimeout(() => setPlasmaPaused(false), isIOS ? 600 : 300)
     }
 
     vv.addEventListener('resize', onVVResize)
