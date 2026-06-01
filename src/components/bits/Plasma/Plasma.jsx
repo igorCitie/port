@@ -164,7 +164,13 @@ export const Plasma = ({
       res[1] = gl.drawingBufferHeight;
     };
 
-    const ro = new ResizeObserver(setSize);
+    let resizeTimer;
+    const setSizeDebounced = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(setSize, 200);
+    };
+
+    const ro = new ResizeObserver(setSizeDebounced);
     ro.observe(containerEl);
     setSize();
 
@@ -221,6 +227,7 @@ export const Plasma = ({
 
     return () => {
       cancelAnimationFrame(raf);
+      clearTimeout(resizeTimer);
       ro.disconnect();
       io.disconnect();
       canvas.removeEventListener('webglcontextlost', handleContextLost);
