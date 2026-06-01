@@ -10,7 +10,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: transform;
-  clip-path: inset(1rem);
+  clip-path: inset(1rem round 14px);
 }
 
 .plasmaWrapper {
@@ -19,6 +19,12 @@
   left: 40%;
   mask-image: linear-gradient(to right, transparent 0%, black 25%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%);
+}
+
+@media (max-width: 768px) {
+  .bg {
+    clip-path: inset(0.35rem round 14px);
+  }
 }
 
 
