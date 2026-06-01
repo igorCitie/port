@@ -67,3 +67,12 @@
   animation: iconFlip 0.32s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+@media (max-width: 768px) {
+  .themeToggle {
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+

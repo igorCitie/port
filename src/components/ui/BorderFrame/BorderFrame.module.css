@@ -39,3 +39,15 @@
   to { stroke-dashoffset: 0; }
 }
 
+@media (max-width: 768px) {
+  .frame {
+    inset: 0.35rem;
+    width: calc(100vw - 0.7rem);
+    height: calc(100vh - 0.7rem);
+  }
+
+  .vignette {
+    border-width: 0.35rem;
+  }
+}
+
