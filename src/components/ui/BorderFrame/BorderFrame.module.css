@@ -1,10 +1,11 @@
 .frame {
   position: fixed;
-  inset: 1rem;
+  top: 1rem;
+  left: 1rem;
   z-index: 50;
   pointer-events: none;
   width: calc(100vw - 2rem);
-  height: calc(100vh - 2rem);
+  height: calc(100svh - 2rem);
   overflow: visible;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -15,7 +16,10 @@
 
 .vignette {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
   z-index: 49;
   pointer-events: none;
   border: 1rem solid rgb(var(--bg));
