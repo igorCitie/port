@@ -43,7 +43,7 @@
   .frame {
     inset: 0.35rem;
     width: calc(100vw - 0.7rem);
-    height: calc(100vh - 0.7rem);
+    height: calc(100dvh - 0.7rem);
   }
 
   .vignette {
