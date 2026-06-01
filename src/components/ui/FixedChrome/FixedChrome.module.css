@@ -1,8 +1,10 @@
 /* ── Background ─────────────────────────────────────── */
 .bg {
   position: fixed;
-  inset: 0;
+  inset: 1rem;
   z-index: 0;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
   background-color: rgb(var(--bg));
   pointer-events: none;
   -webkit-transform: translateZ(0);
