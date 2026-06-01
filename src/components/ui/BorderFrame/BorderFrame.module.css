@@ -19,7 +19,6 @@
   z-index: 49;
   pointer-events: none;
   border: 1rem solid rgb(var(--bg));
-  border-radius: calc(1rem + 14px);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -49,7 +48,6 @@
 
   .vignette {
     border-width: 0.35rem;
-    border-radius: calc(0.35rem + 14px);
   }
 }
 
