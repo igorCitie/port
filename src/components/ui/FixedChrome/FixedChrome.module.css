@@ -25,6 +25,11 @@
   .bg {
     clip-path: inset(0.35rem round 14px);
   }
+
+  .plasmaWrapper {
+  position: absolute;
+  inset: 0;
+}
 }
 
 
