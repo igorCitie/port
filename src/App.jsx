@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import FixedChrome from './components/ui/FixedChrome/FixedChrome'
+import ThemeToggle from './components/ui/ThemeToggle/ThemeToggle'
 import Hero from './components/sections/Hero'
 import PlaceholderSection from './components/sections/PlaceholderSection'
 import Technologies from './components/sections/Technologies/Technologies'
@@ -13,6 +14,7 @@ function Home() {
     <>
       <FixedChrome />
       <div className="scroll-root">
+        <ThemeToggle />
         <main>
           <Hero />
           <Technologies />

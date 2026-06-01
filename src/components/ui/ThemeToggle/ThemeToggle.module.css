@@ -1,0 +1,57 @@
+/* Desktop: absolute inside scroll-root — scrolls away with the page */
+.themeToggle {
+  position: absolute;
+  top: 2.75rem;
+  right: 2.75rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgb(var(--fg) / 0.07);
+  border: 1px solid rgb(var(--fg) / 0.14);
+  border-radius: 6px;
+  color: rgb(var(--fg) / 0.7);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  overflow: hidden;
+}
+
+.themeToggle:hover {
+  background: rgb(var(--fg) / 0.13);
+  color: rgb(var(--fg));
+  border-color: rgb(var(--fg) / 0.28);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes iconFlip {
+  0%   { transform: rotate(0deg)   scale(1); opacity: 1; }
+  45%  { transform: rotate(135deg) scale(0); opacity: 0; }
+  55%  { transform: rotate(225deg) scale(0); opacity: 0; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+.iconSpin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: iconFlip 0.32s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Mobile: fixed at top — always visible */
+@media (max-width: 768px) {
+  .themeToggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
