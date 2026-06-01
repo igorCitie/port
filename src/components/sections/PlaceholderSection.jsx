@@ -24,6 +24,7 @@ export default function PlaceholderSection() {
           </Link>
         ))}
       </div>
+      <div className={styles.bottomDivider} />
     </section>
   )
 }
