@@ -1,0 +1,35 @@
+.langToggle {
+  position: absolute;
+  top: 2.75rem;
+  right: calc(2.75rem + 2.75rem + 0.5rem);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgb(var(--fg) / 0.07);
+  border: 1px solid rgb(var(--fg) / 0.14);
+  border-radius: 6px;
+  color: rgb(var(--fg) / 0.7);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.langToggle:hover {
+  background: rgb(var(--fg) / 0.13);
+  color: rgb(var(--fg));
+  border-color: rgb(var(--fg) / 0.28);
+}
+
+@media (max-width: 768px) {
+  .langToggle {
+    top: 1.25rem;
+    right: calc(1.25rem + 2.25rem + 0.5rem);
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

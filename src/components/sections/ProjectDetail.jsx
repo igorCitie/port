@@ -6,6 +6,7 @@ import FixedChrome from '../ui/FixedChrome/FixedChrome'
 import Lightbox from '../ui/Lightbox/Lightbox'
 import Footer from '../ui/Footer/Footer'
 import styles from './ProjectDetail.module.css'
+import { useLanguage } from '../../context/LanguageContext'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -17,6 +18,8 @@ export default function ProjectDetail() {
 
   const scrollRef = useRef(null)
   const [lightboxIndex, setLightboxIndex] = useState(null)
+  const { lang, t } = useLanguage()
+  const pd = t('projectDetail')
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -27,7 +30,7 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className={styles.page}>
-        <p style={{ color: '#fff' }}>Projeto não encontrado.</p>
+        <p style={{ color: '#fff' }}>{pd.notFound}</p>
       </div>
     )
   }
@@ -43,7 +46,7 @@ export default function ProjectDetail() {
         <div className={styles.header}>
           <h2 className={styles.title}>{project.title}</h2>
           <div className={styles.headerRight}>
-            <button className={styles.closeBtn} onClick={() => navigate('/')} aria-label="Fechar">
+            <button className={styles.closeBtn} onClick={() => navigate('/')} aria-label={pd.closeLabel}>
               <FaTimes />
             </button>
             <nav className={styles.nav}>
@@ -51,7 +54,7 @@ export default function ProjectDetail() {
                 className={styles.navItem}
                 disabled={!prev}
                 onClick={() => prev && navigate(`/projects/${prev.slug}`)}
-                aria-label="Projeto anterior"
+                aria-label={pd.prevLabel}
               >
                 <FaChevronLeft />
                 <span>{prev ? prev.title : '—'}</span>
@@ -61,7 +64,7 @@ export default function ProjectDetail() {
                 className={styles.navItem}
                 disabled={!next}
                 onClick={() => next && navigate(`/projects/${next.slug}`)}
-                aria-label="Próximo projeto"
+                aria-label={pd.nextLabel}
               >
                 <span>{next ? next.title : '—'}</span>
                 <FaChevronRight />
@@ -73,16 +76,19 @@ export default function ProjectDetail() {
         {/* ── Meta ── */}
         {project.meta && (
           <div className={styles.row}>
-            <span className={styles.label}>Meta:</span>
+            <span className={styles.label}>{pd.metaLabel}</span>
             <div className={styles.tags}>
-              {project.meta.map((m) => (
-                <span key={m.label} className={styles.tag}>
-                  {m.icon && <span className={styles.tagIcon}>{m.icon}</span>}
-                  {m.href
-                    ? <a href={m.href} target="_blank" rel="noreferrer" className={styles.tagLink}>{m.label}</a>
-                    : m.label}
-                </span>
-              ))}
+              {project.meta.map((m) => {
+                const displayLabel = lang === 'pt' ? m.label : (m.labelEn ?? m.label)
+                return (
+                  <span key={m.label} className={styles.tag}>
+                    {m.icon && <span className={styles.tagIcon}>{m.icon}</span>}
+                    {m.href
+                      ? <a href={m.href} target="_blank" rel="noreferrer" className={styles.tagLink}>{displayLabel}</a>
+                      : displayLabel}
+                  </span>
+                )
+              })}
             </div>
           </div>
         )}
@@ -90,7 +96,7 @@ export default function ProjectDetail() {
         {/* ── Technologies ── */}
         {project.technologies && (
           <div className={styles.row}>
-            <span className={styles.label}>Tecnologias:</span>
+            <span className={styles.label}>{pd.technologiesLabel}</span>
             <div className={styles.tags}>
               {project.technologies.map((t) => (
                 <span key={t} className={styles.tag}>{t}</span>
@@ -103,12 +109,12 @@ export default function ProjectDetail() {
 
         {/* ── Description ── */}
         <div className={styles.description}>
-          {project.intro && <p className={styles.intro}>{project.intro}</p>}
+          {project.intro && <p className={styles.intro}>{lang === 'pt' ? project.intro : (project.introEn ?? project.intro)}</p>}
           {project.highlights && (
             <>
-              <p className={styles.highlightsHeading}>Destaques Técnicos:</p>
+              <p className={styles.highlightsHeading}>{pd.highlightsHeading}</p>
               <ul className={styles.highlights}>
-                {project.highlights.map((h) => (
+                {(lang === 'pt' ? project.highlights : (project.highlightsEn ?? project.highlights)).map((h) => (
                   <li key={h}>{h}</li>
                 ))}
               </ul>
@@ -127,9 +133,9 @@ export default function ProjectDetail() {
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && setLightboxIndex(i)}
-                aria-label={`Abrir imagem ${i + 1}`}
+                aria-label={`${pd.openImageLabel} ${i + 1}`}
               >
-                <img src={src} alt={`${project.title} foto ${i + 1}`} className={styles.galleryImg} />
+                <img src={src} alt={`${project.title} ${pd.photoAlt} ${i + 1}`} className={styles.galleryImg} />
               </div>
             ))}
           </div>

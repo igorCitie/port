@@ -1,6 +1,7 @@
 ﻿import { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
 import { FaLocationPin, FaGithub, FaLinkedin, FaBluesky, FaHeart } from 'react-icons/fa6'
+import { useLanguage } from '../../context/LanguageContext'
 
 const NAMESPACE = 'igor-portfolio'
 const KEY = 'hearts'
@@ -11,6 +12,8 @@ export default function Hero() {
   const [count, setCount] = useState(null)
   const [liked, setLiked] = useState(() => localStorage.getItem(LS_KEY) === 'true')
   const [loading, setLoading] = useState(false)
+  const { lang, t } = useLanguage()
+  const h = t('hero')
 
   useEffect(() => {
     fetch(BASE + '/')
@@ -37,27 +40,29 @@ export default function Hero() {
     <section className={styles.hero}>
       {/* Content starts near the bottom of the first viewport */}
       <div className={styles.content}>
-        <h1 className={styles.heading}>E aí, sou Igor!</h1>
+        <h1 className={styles.heading}>{h.heading}</h1>
         <p className={styles.subheading}>
           <FaLocationPin style={{ marginRight: '0.7ch', width: '0.7em', height: '0.7em' }} />
           São Luís
         </p>
         <p className={styles.body}>
-          Eu construo aplicações fullstack utilizando TypeScript, especializando-me em{' '}
-          <strong>Next.js</strong> e <strong>React.js</strong>.
+          {lang === 'pt'
+            ? <>Eu construo aplicações fullstack utilizando TypeScript, especializando-me em{' '}<strong>Next.js</strong> e <strong>React.js</strong>.</>
+            : <>I build fullstack applications using TypeScript, specializing in{' '}<strong>Next.js</strong> and <strong>React.js</strong>.</>
+          }
         </p>
         <p className={styles.bodyWide}>
-          Eu sou apaixonado por criar interfaces intuitivas e experiências digitais envolventes. Além de soluções que resolvem problemas reais.
+          {h.bodyWide1}
         </p>
 
         <p className={styles.bodyWide}>
-          Dê uma olhada nos meus projetos abaixo e vamos conversar!
+          {h.bodyWide2}
         </p>
 
          <button
           className={`${styles.heartBtn} ${liked ? styles.heartBtnLiked : ''}`}
           onClick={handleHeart}
-          aria-label={liked ? 'Remover curtida' : 'Curtir'}
+          aria-label={liked ? h.ariaUnlike : h.ariaLike}
           disabled={loading}
         >
           <FaHeart className={styles.heartIcon} />
