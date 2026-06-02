@@ -5,7 +5,7 @@ import styles from './ThemeToggle.module.css'
 
 const FLIP_DURATION = 320
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ className }) {
   const { theme, toggleTheme } = useTheme()
   const [isAnimating, setIsAnimating] = useState(false)
 
@@ -18,7 +18,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className={styles.themeToggle}
+      className={[styles.themeToggle, className].filter(Boolean).join(' ')}
       onClick={handleToggle}
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >

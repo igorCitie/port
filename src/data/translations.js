@@ -40,6 +40,20 @@ export const translations = {
       openImageLabel: 'Abrir imagem',
       photoAlt: 'foto',
     },
+    about: {
+      backLabel: 'Voltar',
+      heading: 'Sobre mim',
+      subheading: 'Desenvolvedor FullStack · São Luís, Brasil',
+      bio: [
+        'E aí! Sou Igor Lima Pereira, nascido e criado em São Luís, capital do estado do Maranhão.',
+        'Sou um desenvolvedor FullStack, mas minha verdadeira paixão é o front-end. Adoro desenvolver soluções elegantes e experiências intuitivas para o usuário.',
+        'Tenho experiência com todo o ciclo do desenvolvimento web. No front-end desenvolvo interfaces utilizando bibliotecas modernas e as melhores práticas de código e UI. No backend, desenvolvo sistemas escaláveis e seguros.',
+      ],
+      techHeading: 'Experiência Técnica',
+      tech: ['TypeScript', 'React', 'Next.js', 'Angular', 'Tailwind CSS', 'PostgreSQL', 'Drizzle ORM', 'SEO'],
+      connectHeading: 'Vamos nos conectar',
+      connectText: 'Se você estiver procurando um desenvolvedor para ajudar a tirar suas ideias do papel, basta entrar em contato comigo!',
+    },
   },
   en: {
     hero: {
@@ -81,6 +95,20 @@ export const translations = {
       highlightsHeading: 'Technical Highlights:',
       openImageLabel: 'Open image',
       photoAlt: 'photo',
+    },
+    about: {
+      backLabel: 'Back',
+      heading: 'About me',
+      subheading: 'FullStack Developer · São Luís, Brazil',
+      bio: [
+        "Hey! I'm Igor Lima Pereira, born and raised in São Luís, the capital of Maranhão.",
+        "I'm a FullStack developer, but my true passion is front-end. I love building elegant solutions and intuitive user experiences.",
+        'I have experience across the full web development cycle. On the front-end I build interfaces using modern libraries and best coding and UI practices. On the back-end I develop scalable and secure systems.',
+      ],
+      techHeading: 'Technical Experience',
+      tech: ['TypeScript', 'React', 'Next.js', 'Angular', 'Tailwind CSS', 'PostgreSQL', 'Drizzle ORM', 'SEO'],
+      connectHeading: "Let's connect",
+      connectText: "If you're looking for a developer to help bring your ideas to life, feel free to reach out!",
     },
   },
 }

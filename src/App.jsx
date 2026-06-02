@@ -10,7 +10,7 @@ import Technologies from './components/sections/Technologies/Technologies'
 import Contact from './components/sections/Contact/Contact'
 import ProjectDetail from './components/sections/ProjectDetail'
 import Footer from './components/ui/Footer/Footer'
-
+import About from './components/sections/about'
 function Home() {
   return (
     <>
@@ -36,6 +36,7 @@ function Routes_() {
     <Routes>
       <Route path="/" element={<Home key={langKey} />} />
       <Route path="/projects/:slug" element={<ProjectDetail key={langKey} />} />
+      <Route path="/about" element={<About key={langKey} />} />
     </Routes>
   )
 }

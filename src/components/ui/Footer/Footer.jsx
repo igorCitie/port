@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom'
 import styles from './Footer.module.css'
 
 const socialLinks = [
-  { icon: FaLinkedin, label: 'LinkedIn',  href: 'https://www.linkedin.com/in/igor-lima-pereira-577872186/' },
-  { icon: FaGithub,   label: 'GitHub',    href: 'https://github.com/igorCitie' },
-  { icon: FaInstagram,  label: 'Instagram',   href: 'https://www.instagram.com/igorl.pereira/' },
+  { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/igor-lima-pereira-577872186/' },
+  { icon: FaGithub, label: 'GitHub', href: 'https://github.com/igorCitie' },
+  { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/igorl.pereira/' },
 ]
 
 const navLinks = [
-  { label: 'Home',  to: '/'      },
+  { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
-  { label: 'Blog',  to: '/blog'  },
 ]
 
 export default function Footer() {
@@ -32,6 +31,24 @@ export default function Footer() {
               <Icon aria-hidden="true" className={styles.socialIcon} />
             </a>
           ))}
+        </div>
+        <div className={styles.socials}>
+          <Link
+            key="home"
+            to="/"
+            className={styles.copyright}
+            aria-label="Home"
+          >
+            <p className={styles.copyright}>Home</p>
+          </Link>
+          <Link
+            key="about"
+            to="/about"
+            className={styles.copyright}
+            aria-label="About"
+          >
+            <p className={styles.copyright}>About</p>
+          </Link>
         </div>
       </div>
     </footer>

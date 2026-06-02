@@ -78,6 +78,21 @@
     font-size: 1.8rem;
 }
 
+.copyright {
+  color: rgb(var(--fg));
+  font-family: var(--font-heading);
+  font-weight:00;
+  margin: 0;
+  line-height: 1.1;
+  text-decoration: none !important;
+  }
+
+  .copyright:hover {
+  text-decoration: underline !important;
+  transition: text-decoration 1s;
+  }
+
+
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .footer {
