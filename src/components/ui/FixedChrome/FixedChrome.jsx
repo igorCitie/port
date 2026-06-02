@@ -11,10 +11,7 @@ const isIOS =
 
 const isLowEndMobile =
   isIOS ||
-  (typeof navigator !== 'undefined' &&
-    /android/i.test(navigator.userAgent) &&
-    ((navigator.hardwareConcurrency ?? 8) <= 4 ||
-      (navigator.deviceMemory ?? 8) <= 2));
+  (typeof navigator !== 'undefined' && /android/i.test(navigator.userAgent));
 
 export default function FixedChrome() {
   const { theme } = useTheme()

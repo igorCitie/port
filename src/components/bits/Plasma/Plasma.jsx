@@ -9,10 +9,7 @@ const isIOS =
 
 const isLowEndMobile =
   isIOS ||
-  (typeof navigator !== 'undefined' &&
-    /android/i.test(navigator.userAgent) &&
-    ((navigator.hardwareConcurrency ?? 8) <= 4 ||
-      (navigator.deviceMemory ?? 8) <= 2));
+  (typeof navigator !== 'undefined' && /android/i.test(navigator.userAgent));
 
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
