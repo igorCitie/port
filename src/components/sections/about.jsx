@@ -6,21 +6,40 @@ import LangToggle from '../ui/LangToggle/LangToggle'
 import Footer from '../ui/Footer/Footer'
 import { useLanguage } from '../../context/LanguageContext'
 import profileImg from '../../assets/profile.jpg'
+import { useTheme } from '../../context/ThemeContext'
 import styles from './about.module.css'
-
+import DotField from '../bits/DotFIeld/DotField'
 export default function About() {
     const navigate = useNavigate()
     const { t } = useLanguage()
-    const a = t('about')
+  const { theme } = useTheme()
 
+    const a = t('about')
+    const gradientColor = theme === 'light' ? '#cccccc' : '#1b1b1b'
     return (
-        <>
+        <>  
+            
             <div className="scroll-root">
                 <div className={styles.topBar}>
                 <ThemeToggle className={styles.themeToggle} />
                 <LangToggle className={styles.langToggle} />
                 </div>
                 <main>
+                    <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+                <DotField
+                    dotRadius={1.5}
+                    dotSpacing={14}
+                    bulgeStrength={27}
+                    glowRadius={1}
+                    waveAmplitude={0}
+                    cursorRadius={500}
+                    cursorForce={0.009}
+                    bulgeOnly
+                    gradientFrom={gradientColor}
+                    gradientTo="#7c7a7a"
+                    style={{ pointerEvents: 'none' }}
+                />
+            </div>
                     <section className={styles.page}>
                         <div className={styles.inner}>
 
@@ -74,9 +93,10 @@ export default function About() {
                             <img src={profileImg} className={styles.profileContainer} alt="Igor Lima Pereira" className={styles.profileImg} />
                         </div>
                     </section>
+                    <Footer />
                 </main>
-                <Footer />
             </div>
+            
         </>
     )
 }
