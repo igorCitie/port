@@ -43,7 +43,7 @@ export default function Hero() {
         <h1 className={styles.heading}>{h.heading}</h1>
         <p className={styles.subheading}>
           <FaLocationPin style={{ marginRight: '0.7ch', width: '0.7em', height: '0.7em' }} />
-          São Luí
+          São Luís, Brasil
         </p>
         <p className={styles.body}>
           {lang === 'pt'
