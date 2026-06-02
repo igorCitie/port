@@ -207,8 +207,8 @@
 .profileContainer {
   animation: fadeUp 0.9s ease forwards 0.3s;
   margin-top: 2rem;
-  width: 35%;
-  height: 35%;
+  width: 45%;
+  height: 45%;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
