@@ -29,7 +29,7 @@ void main() {
 `;
 
 const fragment = `#version 300 es
-precision ${isLowEndMobile ? 'mediump' : 'highp'} float;
+precision highp float;
 uniform vec2 iResolution;
 uniform float iTime;
 uniform vec3 uCustomColor;
@@ -40,7 +40,6 @@ uniform float uScale;
 uniform float uOpacity;
 uniform vec2 uMouse;
 uniform float uMouseInteractive;
-uniform float uIterations;
 out vec4 fragColor;
 
 void mainImage(out vec4 o, vec2 C) {
@@ -53,7 +52,7 @@ void mainImage(out vec4 o, vec2 C) {
   float i, d, z, T = iTime * uSpeed * uDirection;
   vec3 O, p, S;
 
-  for (vec2 r = iResolution.xy, Q; ++i < uIterations; O += o.w/d*o.xyz) {
+  for (vec2 r = iResolution.xy, Q; ++i < 60.; O += o.w/d*o.xyz) {
     p = z*normalize(vec3(C-.5*r,r.y)); 
     p.z -= 4.; 
     S = p;
@@ -151,8 +150,7 @@ export const Plasma = ({
         uScale: { value: scale },
         uOpacity: { value: opacity },
         uMouse: { value: new Float32Array([0, 0]) },
-        uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 },
-        uIterations: { value: isLowEndMobile ? 30.0 : 60.0 }
+        uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 }
       }
     });
 
