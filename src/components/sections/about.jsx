@@ -5,7 +5,8 @@ import ThemeToggle from '../ui/ThemeToggle/ThemeToggle'
 import LangToggle from '../ui/LangToggle/LangToggle'
 import Footer from '../ui/Footer/Footer'
 import { useLanguage } from '../../context/LanguageContext'
-import profileImg from '../../assets/profile.jpg'
+import profileImg from '../../assets/profile.png'
+import profileImgDark from '../../assets/profile-dark.png'
 import { useTheme } from '../../context/ThemeContext'
 import styles from './about.module.css'
 import DotField from '../bits/DotFIeld/DotField'
@@ -16,6 +17,7 @@ export default function About() {
 
     const a = t('about')
     const gradientColor = theme === 'light' ? '#cccccc' : '#1b1b1b'
+    const profileImage = theme === 'light' ? profileImg : profileImgDark
     return (
         <>  
             
@@ -91,7 +93,7 @@ export default function About() {
                             </div>
                         </div>
                         <div className={styles.profileContainer}>
-                            <img src={profileImg} className={styles.profileContainer} alt="Igor Lima Pereira" className={styles.profileImg} />
+                            <img src={profileImage} className={styles.profileContainer} alt="Igor Lima Pereira" className={styles.profileImg} />
                         </div>
                     </section>
                     <Footer />

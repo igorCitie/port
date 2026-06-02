@@ -43,13 +43,10 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(1);
   transition: filter 0.3s ease;
 }
 
-:global([data-theme="light"]) .profileImg {
-  filter: grayscale(0);
-}
+
 
 .backBtn {
   display: inline-flex;
