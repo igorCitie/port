@@ -1,5 +1,6 @@
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../../../context/LanguageContext'
 import styles from './Footer.module.css'
 
 const socialLinks = [
@@ -14,6 +15,7 @@ const navLinks = [
 ]
 
 export default function Footer() {
+  const { lang } = useLanguage()
   return (
     <footer className={styles.footer}>
       <div className={styles.topDivider} />
@@ -47,7 +49,7 @@ export default function Footer() {
             className={styles.copyright}
             aria-label="About"
           >
-            <p className={styles.copyright}>About</p>
+            <p className={styles.copyright}>{lang === 'pt' ? 'Sobre' : 'About'}</p>
           </Link>
         </div>
       </div>
