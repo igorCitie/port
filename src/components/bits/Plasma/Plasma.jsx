@@ -7,6 +7,13 @@ const isIOS =
   (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
 
+const isLowEndMobile =
+  isIOS ||
+  (typeof navigator !== 'undefined' &&
+    /android/i.test(navigator.userAgent) &&
+    ((navigator.hardwareConcurrency ?? 8) <= 4 ||
+      (navigator.deviceMemory ?? 8) <= 2));
+
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return [1, 0.5, 0.2];
@@ -25,7 +32,7 @@ void main() {
 `;
 
 const fragment = `#version 300 es
-precision ${isIOS ? 'mediump' : 'highp'} float;
+precision ${isLowEndMobile ? 'mediump' : 'highp'} float;
 uniform vec2 iResolution;
 uniform float iTime;
 uniform vec3 uCustomColor;
@@ -118,7 +125,7 @@ export const Plasma = ({
         webgl: 2,
         alpha: true,
         antialias: false,
-        dpr: Math.min(window.devicePixelRatio || 1, isIOS ? 1 : 2)
+        dpr: Math.min(window.devicePixelRatio || 1, isLowEndMobile ? 1 : 2)
       });
     } catch {
       return;
@@ -190,7 +197,7 @@ export const Plasma = ({
     let contextLost = false;
     let isVisible = true;
     const t0 = performance.now();
-    const frameDuration = isIOS ? 1000 / 30 : 0;
+    const frameDuration = isLowEndMobile ? 1000 / 30 : 0;
     let lastFrameTime = -Infinity;
 
     const loop = t => {

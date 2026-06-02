@@ -9,6 +9,13 @@ const isIOS =
   (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
 
+const isLowEndMobile =
+  isIOS ||
+  (typeof navigator !== 'undefined' &&
+    /android/i.test(navigator.userAgent) &&
+    ((navigator.hardwareConcurrency ?? 8) <= 4 ||
+      (navigator.deviceMemory ?? 8) <= 2));
+
 export default function FixedChrome() {
   const { theme } = useTheme()
   const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 768px)').matches)
@@ -30,7 +37,7 @@ export default function FixedChrome() {
     const onVVResize = () => {
       setPlasmaPaused(true)
       clearTimeout(resumeTimer.current)
-      resumeTimer.current = setTimeout(() => setPlasmaPaused(false), isIOS ? 600 : 300)
+      resumeTimer.current = setTimeout(() => setPlasmaPaused(false), isLowEndMobile ? 600 : 300)
     }
 
     vv.addEventListener('resize', onVVResize)
