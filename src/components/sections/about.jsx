@@ -35,6 +35,7 @@ export default function About() {
                     cursorRadius={500}
                     cursorForce={0.009}
                     bulgeOnly
+                    sparkle
                     gradientFrom={gradientColor}
                     gradientTo="#7c7a7a"
                     style={{ pointerEvents: 'none' }}
