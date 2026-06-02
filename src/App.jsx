@@ -11,7 +11,7 @@ import Contact from './components/sections/Contact/Contact'
 import ProjectDetail from './components/sections/ProjectDetail'
 import Footer from './components/ui/Footer/Footer'
 import About from './components/sections/about'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 function Home() {
   return (
     <>
@@ -48,6 +48,7 @@ function App() {
       <LanguageProvider>
         <BrowserRouter>
           <Routes_ />
+          <Analytics />
         </BrowserRouter>
       </LanguageProvider>
     </ThemeProvider>
